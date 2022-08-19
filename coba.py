@@ -14,7 +14,7 @@ def get_data_from_excel():
         sheet_name="Sheet3",
         skiprows=0,
         usecols="A:F",
-        nrows=157,
+        nrows=1570,
     )
     return df
 
