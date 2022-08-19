@@ -9,7 +9,7 @@ st.set_page_config(page_title="Profil Keuangan Pemda", page_icon=":bar_chart:", 
 @st.cache
 def get_data_from_excel():
     df = pd.read_excel(
-        io="LRA_Pemda6.xlsx",
+        io="LRA_Pemda7.xlsx",
         engine="openpyxl",
         sheet_name="Sheet3",
         skiprows=0,
