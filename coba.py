@@ -71,7 +71,23 @@ fig_pendapatan_bulanan.update_layout(
     yaxis=(dict(showgrid=False)),
 )
 
+# BELANJA PER BULAN [BAR CHART]
+belanja_per_bulan = df_selection.groupby(by=["Bulan"]).sum()[["Belanja"]]
+fig_belanja_bulanan = px.bar(
+    belanja_per_bulan,
+    x=belanja_per_bulan.index,
+    y="Belanja",
+    title="<b>BELANJA PER BULAN</b>",
+    color_discrete_sequence=["#0083B8"] * len(belanja_per_bulan),
+    template="plotly_white",
+)
+fig_belanja_bulanan.update_layout(
+    xaxis=dict(tickmode="linear"),
+    plot_bgcolor="rgba(0,0,0,0)",
+    yaxis=(dict(showgrid=False)),
+)
+
 
 left_column, right_column = st.columns(2)
 left_column.plotly_chart(fig_pendapatan_bulanan, use_container_width=True)
-right_column.plotly_chart(fig_pendapatan_bulanan, use_container_width=True)
+right_column.plotly_chart(fig_belanja_bulanan, use_container_width=True)
